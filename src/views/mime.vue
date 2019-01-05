@@ -1,20 +1,20 @@
 <template>
-  <div class="home">
+  <div class="mime">
     <common-header></common-header>
-    <span>首页</span>
+    <span>个人中心</span>
   </div>
 </template>
 
 <script>
 import CommonHeader from 'components/commonHeader.vue'
 export default {
-  name: 'home',
+  name: 'mime',
   components: {
     CommonHeader
   }
 }
 </script>
 
-<style scoped lang="stylus">
+<style>
 
 </style>

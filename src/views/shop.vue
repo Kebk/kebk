@@ -1,20 +1,18 @@
 <template>
-  <div class="home">
+  <div class="shop">
     <common-header></common-header>
-    <span>首页</span>
-  </div>
+    商城</div>
 </template>
 
 <script>
 import CommonHeader from 'components/commonHeader.vue'
 export default {
-  name: 'home',
+  name: 'shop',
   components: {
     CommonHeader
   }
 }
 </script>
 
-<style scoped lang="stylus">
-
+<style>
 </style>

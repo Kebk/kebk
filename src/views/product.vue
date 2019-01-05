@@ -1,14 +1,14 @@
 <template>
-  <div class="home">
+  <div class="product">
     <common-header></common-header>
-    <span>首页</span>
+    <span>产品</span>
   </div>
 </template>
 
 <script>
 import CommonHeader from 'components/commonHeader.vue'
 export default {
-  name: 'home',
+  name: 'product',
   components: {
     CommonHeader
   }
