@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-
+.home
+  height 100%
+  span
+    font-size 20px
 </style>
