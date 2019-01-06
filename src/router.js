@@ -9,22 +9,34 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "home" */ './views/home.vue')
+    component: () => import(/* webpackChunkName: "home" */ './views/home.vue'),
+    meta: {
+      nav: 'home'
+    }
   },
   {
     path: '/shop',
     name: 'shop',
-    component: () => import(/* webpackChunkName: "shop" */ './views/shop.vue')
+    component: () => import(/* webpackChunkName: "shop" */ './views/shop.vue'),
+    meta: {
+      nav: 'shop'
+    }
   },
   {
     path: '/product',
     name: 'product',
-    component: () => import(/* webpackChunkName: "product" */ './views/product.vue')
+    component: () => import(/* webpackChunkName: "product" */ './views/product.vue'),
+    meta: {
+      nav: 'product'
+    }
   },
   {
     path: '/mime',
     name: 'mime',
-    component: () => import(/* webpackChunkName: "mime" */ './views/mime.vue')
+    component: () => import(/* webpackChunkName: "mime" */ './views/mime.vue'),
+    meta: {
+      nav: 'mime'
+    }
   }
   ]
 })
