@@ -1,20 +1,20 @@
 <template>
-  <div class="product">
+  <div class="mime">
     <nav-header></nav-header>
-    <span>主营产品</span>
+    <span>排行榜</span>
   </div>
 </template>
 
 <script>
 import NavHeader from '@/components/navHeader.vue'
 export default {
-  name: 'product',
+  name: 'rank',
   components: {
     NavHeader
   }
 }
 </script>
 
-<style scoped lang="stylus">
+<style>
 
 </style>

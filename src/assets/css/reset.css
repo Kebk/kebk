@@ -31,7 +31,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
+  font: 12px/1.5 "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -142,6 +142,7 @@ a {
   -o-transition: color .2s;
 }
 
+/* 清除浮动 */
 .clearfix:after {
   visibility: hidden;
   display: block;

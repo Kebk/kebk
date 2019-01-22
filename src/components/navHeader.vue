@@ -5,9 +5,9 @@
         <span>KEBK</span>
       </div>
       <ul class="nav">
-        <li v-for="(item,index) in list"
+        <li v-for="(item, index) in list"
             :key=index
-            :class="[navActive===item.name? 'nav-acitve': '', 'nav-item']">
+            :class="[navActive===item.name ? 'nav-acitve': '', 'nav-item']">
           <router-link :to=item.path>{{item.title}}</router-link>
         </li>
       </ul>
@@ -15,20 +15,18 @@
         <li class="info-item">
           <img class="info-avator"
                src="../assets/img/default-avator.jpg"
-               alt=""
+               alt="个人中心"
                @mouseover="showInfo"
                @mouseout="hideInfo">
-          <transition name="fade">
-            <div class="info-menu">
-              <p class="info-name">Conrad</p>
-              <ul class="info-link">
-                <li>买家中心</li>
-                <li>卖家中心</li>
-                <li>个人中心</li>
-                <li>订单中心</li>
-              </ul>
-            </div>
-          </transition>
+          <div class="info-menu">
+            <p class="info-name">Conrad</p>
+            <ul class="info-link">
+              <li>买家中心</li>
+              <li>卖家中心</li>
+              <li>个人中心</li>
+              <li>订单中心</li>
+            </ul>
+          </div>
         </li>
         <li class="info-item">
           <span>建议</span>
@@ -48,9 +46,8 @@ export default {
     return {
       list: [
         { name: 'home', title: '首页', path: '/' },
-        { name: 'product', title: '产品', path: '/product' },
-        { name: 'shop', title: '商城', path: '/shop' },
-        { name: 'mime', title: '个人中心', path: '/mime' }
+        { name: 'product', title: '主营产品', path: '/product' },
+        { name: 'rank', title: '排行榜', path: '/rank' }
       ],
       navActive: '', // 判断顶部导航栏选中状态\
       isShowInfo: false
@@ -138,10 +135,4 @@ export default {
             li
               float left
               width 100px
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 </style>
