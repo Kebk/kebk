@@ -3,19 +3,17 @@
     <div class="swiper-container"
          :style="{ left: -width+'px', width: width*6+'px' }"
          ref="container">
-      <img src="../assets/img/4.png">
-      <img src="../assets/img/1.png">
-      <img src="../assets/img/2.png">
-      <img src="../assets/img/3.png">
-      <img src="../assets/img/4.png">
-      <img src="../assets/img/1.png">
+      <img v-for="(item, index) in list"
+           :key="index"
+           :src="item.url"
+           alt="">
     </div>
     <div class="btn-container">
       <ul class="clearfix">
         <li v-for="(item,index) in length"
             :key="index"
             :class="[current === item ? 'focus': '']"
-            @click="handleChange(0,item)"></li>
+            @click="handleChange(0, item)"></li>
       </ul>
     </div>
     <div class="arrow arrow-left"
@@ -35,17 +33,24 @@ export default {
   name: 'swiper',
   data () {
     return {
-      imgList: [
-        { url: '../assets/img/1.png', active: false },
-        { url: '../assets/img/2.png', active: false },
-        { url: '../assets/img/3.png', active: false },
-        { url: '../assets/img/4.png', active: false }
-      ],
-      params: {},
-      current: 1,
+      list: [], // 处理后的轮播图列表
       length: 0,
-      width: 1920,
+      current: 1,
+      params: {},
       timer: null // 定时器
+    }
+  },
+  props: {
+    // 轮播图列表
+    imgList: {
+      type: Array,
+      required: true
+    },
+    // 轮播图的宽度
+    width: {
+      type: Number,
+      default: 1920,
+      required: true
     }
   },
   methods: {
@@ -69,17 +74,19 @@ export default {
     },
     moveImg () {
       this.params.target.left = -this.current * this.width
-      moveUtil(this.params, () => {
-        if (this.current === this.length + 1) {
-          this.current = 1
-          // TODO 去掉settimeout后出现无法修改left的问题
+      if (this.current === this.length + 1) {
+        this.current = 1
+        moveUtil(this.params, () => {
           setTimeout(() => { this.$refs.container.style.left = -this.width + 'px' }, 0)
-        } else if (this.current === 0) {
-          this.current = this.length
-          // TODO 去掉settimeout后出现无法修改left的问题
+        })
+      } else if (this.current === 0) {
+        this.current = this.length
+        moveUtil(this.params, () => {
           setTimeout(() => { this.$refs.container.style.left = -this.width * this.current + 'px' }, 0)
-        }
-      })
+        })
+      } else {
+        moveUtil(this.params)
+      }
     },
     getStyle (element, attr) {
       return getComputedStyle(element, false)[attr]
@@ -91,7 +98,7 @@ export default {
     const last = this.imgList[0]
     const first = this.imgList[this.imgList.length - 1]
     this.length = this.imgList.length
-    this.imgList = [first, ...this.imgList, last]
+    this.list = [first, ...this.imgList, last]
   },
   mounted () {
     this.params = {
