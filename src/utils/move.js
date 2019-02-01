@@ -167,10 +167,10 @@ const Tween = {
  * - target 目标样式 eg:{'opacity':100,'left':200,'width':300}
  * - time 运动的时间 default:1000
  * - prop 补间动画(Tween.js) default:'linear'
- * - cb 运动结束后的回调函数
+ * @param {Function} cb 回调函数
  */
-const move = params => {
-  let { el, target, time, prop, cb } = params
+const move = (params, cb) => {
+  let { el, target, time, prop } = params
   time = time || 1000
   prop = prop || 'linear'
   clearInterval(el.timer)
