@@ -39,6 +39,10 @@ input, select, textarea {
   font-size: 100%;
 }
 
+input{
+  outline: none
+}
+
 /* 去掉各 table cell 的边距并让其边重合 */
 table {
   border-collapse: collapse;
