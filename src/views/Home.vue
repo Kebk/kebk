@@ -26,6 +26,6 @@ export default {
 
 <style scoped lang="stylus">
 .swiper
-  height 400px
+  height 500px
   background rgba(0, 0, 0, 0.3)
 </style>
