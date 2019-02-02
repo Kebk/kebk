@@ -1,7 +1,7 @@
 <template>
   <!-- 个人导航栏头部 -->
   <div class="main-header">
-    <div class="container">
+    <div class="kebk-container">
       <!-- 左:登录 注册 -->
       <!-- 右:个人中心(下拉:卖家中心 买家中心) | 建议 联系客服 -->
     </div>
@@ -18,8 +18,6 @@ export default {
 .main-header
   height 30px
   background $c-light
-  .container
-    width 1140px
+  .kebk-container
     height 30px
-    margin 0 auto
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="main-bottom">
-    <div class="container">
+    <div class="kebk-container">
       关于我们
     </div>
   </div>
@@ -16,8 +16,6 @@ export default {
 .main-bottom
   background $c-dark
   color $c-white
-  .container
-    width 1140px
-    margin 0 auto
+  .kebk-container
     padding 50px
 </style>
