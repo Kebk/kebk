@@ -1,19 +1,38 @@
 <template>
   <div class="home">
-    <main-header></main-header>
-    <nav-header></nav-header>
+    <MainHeader />
+    <NavHeader />
     <div class="swiper clearfix">
       <Swiper :width="width"
               :imgList="imgList" />
     </div>
-    <div class="product">
-      <div class="tag">
-        <p>产品系列</p>
-        <p>Product</p>
+    <div class="classify">
+      <div class="kebk-container">
+        <div class="classify-tag">
+          <p>产品系列</p>
+          <p>Product</p>
+        </div>
+        <div class="classify-container clearfix">
+          <div class="classify-box">笔记本</div>
+          <div class="classify-box">一体机</div>
+          <div class="classify-box">台式机</div>
+          <div class="classify-box">电脑配件</div>
+        </div>
       </div>
-      <div class="conatainer">
-        <div class="">笔记本</div>
-        <div class="">笔记本</div>
+    </div>
+    <div class="classify classify-bg">
+      <div class="kebk-container">
+        <div class="classify-tag">
+          <p>品牌代理</p>
+          <p>Brand</p>
+        </div>
+        <div class="classify-container clearfix">
+          <div class="classify-box">自营产品</div>
+          <div class="classify-box">戴尔</div>
+          <div class="classify-box">华硕</div>
+          <div class="classify-box">联想</div>
+          <div class="classify-box">外星人</div>
+        </div>
       </div>
     </div>
     <main-bottom></main-bottom>
@@ -31,8 +50,10 @@ export default {
     return {
       width: 1920,
       imgList: [
-        { url: 'http://conrad-img.oss-cn-hangzhou.aliyuncs.com/kebk/home/%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF1.png?Expires=1549021150&OSSAccessKeyId=TMP.AQGRnP75pszFX4v_bI5q8rizYm4RVAOf4duy0anKiY728cihm9R7s050vdqKADAtAhRAVSRmy_s5wPdUbFlcniiXvqMYDgIVAIzMEKlO7GUJRYH7nR5Ldgn0ohxL&Signature=jUSE4OSOn9pwfdBsdYZp8H6sxfY%3D', des: '1' },
-        { url: 'http://conrad-img.oss-cn-hangzhou.aliyuncs.com/kebk/home/%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF2.png?Expires=1549021173&OSSAccessKeyId=TMP.AQGRnP75pszFX4v_bI5q8rizYm4RVAOf4duy0anKiY728cihm9R7s050vdqKADAtAhRAVSRmy_s5wPdUbFlcniiXvqMYDgIVAIzMEKlO7GUJRYH7nR5Ldgn0ohxL&Signature=3dl2x1uHSToAsZ%2BND4XV0hUwPVs%3D', des: '2' }
+        { url: 'https://img.alicdn.com/tfs/TB1YwuvEZbpK1RjSZFyXXX_qFXa-520-280.jpg_q90_.webp', des: '1' },
+        { url: 'https://img.alicdn.com/simba/img/TB14dt2knnI8KJjy0FfSuwdoVXa.jpg', des: '2' },
+        { url: 'https://img.alicdn.com/simba/img/TB1sJy.gCcqBKNjSZFgSut_kXXa.jpg', des: '3' },
+        { url: 'https://img.alicdn.com/simba/img/TB19YZvDjTpK1RjSZKPSuu3UpXa.jpg', des: '4' }
       ]
     }
   },
@@ -46,4 +67,24 @@ export default {
 .swiper
   height 500px
   background rgba(0, 0, 0, 0.3)
+.classify
+  margin-top 20px
+  padding 20px 0
+  background $c-white
+  .classify-tag
+    margin-bottom 40px
+    font-size 24px
+    text-align center
+  .classify-container
+    margin 0 auto
+    text-align center
+    .classify-box
+      margin 0 0 10px 10px
+      float left
+      width 30%
+      height 200px
+      border 1px solid $c-black
+      cursor pointer
+.classify-bg
+  background $c-light
 </style>

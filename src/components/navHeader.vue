@@ -1,6 +1,6 @@
 <template>
   <div class="nav-header">
-    <div class="container">
+    <div class="kebk-container">
       <div class="logo">
         <span>KEBK</span>
       </div>
@@ -42,7 +42,7 @@ export default {
   margin-bottom 10px
   height 80px
   box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.1)
-  .container
+  .kebk-container
     width 1140px
     height 80px
     margin 0 auto

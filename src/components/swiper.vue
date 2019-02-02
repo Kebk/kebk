@@ -6,6 +6,8 @@
       <img v-for="(item, index) in list"
            :key="index"
            :src="item.url"
+           :width="width"
+           height="500"
            alt="">
     </div>
     <div class="btn-container">
