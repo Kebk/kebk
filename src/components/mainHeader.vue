@@ -10,10 +10,10 @@
       <div class="header-right">
         <div class="header-login">
           <a class="login-a"
-             href="#">您好，请登录</a>
+             href="/login">您好，请登录</a>
         </div>
         <div class="header-register">
-          <a class="register-a"
+          <a class="register-a "
              href="#">免费注册</a>
         </div>
         <div class="header-banner"
@@ -81,6 +81,8 @@ export default {
           display block
           text-decoration none
           color $c-banner
+          .register-a:hover
+            color:$c-hover
       .header-banner
         float left
         width 80px
