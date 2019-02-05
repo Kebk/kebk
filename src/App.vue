@@ -3,6 +3,8 @@
     <router-view/>
   </div>
 </template>
-<style>
-@import 'assets/css/reset.css';
+<style lang="stylus">
+@import './assets/css/reset.css';
+@import './assets/css/color.styl';
+@import './assets/css/iconfont.css';
 </style>

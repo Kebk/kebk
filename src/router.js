@@ -15,14 +15,6 @@ export default new Router({
     }
   },
   {
-    path: '/shop',
-    name: 'shop',
-    component: () => import(/* webpackChunkName: "shop" */ './views/shop.vue'),
-    meta: {
-      nav: 'shop'
-    }
-  },
-  {
     path: '/product',
     name: 'product',
     component: () => import(/* webpackChunkName: "product" */ './views/product.vue'),
@@ -31,11 +23,19 @@ export default new Router({
     }
   },
   {
-    path: '/mime',
-    name: 'mime',
-    component: () => import(/* webpackChunkName: "mime" */ './views/mime.vue'),
+    path: '/rank',
+    name: 'rank',
+    component: () => import(/* webpackChunkName: "rank" */ './views/rank.vue'),
     meta: {
-      nav: 'mime'
+      nav: 'rank'
+    }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import(/* webpackChunkName: "errorPage" */ 'views/404.vue'),
+    meta: {
+      nav: '404'
     }
   }
   ]

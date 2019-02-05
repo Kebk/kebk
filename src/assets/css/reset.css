@@ -9,6 +9,7 @@ html {
   background: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  cursor: default;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -31,12 +32,16 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
+  font: 12px/1.5 "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
   -webkit-font-smoothing: antialiased;
 }
 
 input, select, textarea {
   font-size: 100%;
+}
+
+input{
+  outline: none
 }
 
 /* 去掉各 table cell 的边距并让其边重合 */
@@ -142,6 +147,7 @@ a {
   -o-transition: color .2s;
 }
 
+/* 清除浮动 */
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -153,4 +159,10 @@ a {
 
 .clearfix {
   *zoom:1;
+}
+
+/* pc端居中容器 */
+.kebk-container{
+  width: 1140px;
+  margin: 0 auto;
 }
