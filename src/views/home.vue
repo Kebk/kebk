@@ -57,6 +57,9 @@ export default {
       ]
     }
   },
+  created () {
+    this.$api.user.test()
+  },
   components: {
     NavHeader, Swiper, MainHeader, MainBottom
   }
