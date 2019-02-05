@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './assets/css/iconfont.css'
+import api from './api'
+
+Vue.prototype.$api = api // axios
 
 Vue.config.productionTip = false
 
