@@ -108,10 +108,10 @@ export default {
       target: { 'left': 0 },
       time: 300
     }
-    this.timer = setInterval(() => {
-      this.current++
-      this.moveImg()
-    }, 3000)
+    // this.timer = setInterval(() => {
+    //   this.current++
+    //   this.moveImg()
+    // }, 3000)
   },
   // 离开页面时清除定时器
   destroyed () {

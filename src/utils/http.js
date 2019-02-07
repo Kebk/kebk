@@ -1,9 +1,9 @@
+// import config from '@/config'
 import axios from 'axios'
-// import config from './config'
 // import { Loading } from 'element-ui'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8700',
+  baseURL: 'http://101.132.35.13:8700',
   timeout: 5000
 })
 
@@ -12,14 +12,17 @@ const instance = axios.create({
 const errorHandle = status => {
   switch (status) {
     case 401:
+      console.log('401')
       // 未登录状态,跳转至登录页
       break
     case 403:
+      console.log('403')
       // 登录过期 请重新登录
       break
-    // case 404:
-    //   // 请求的资源不存在
-    //   break
+    case 404:
+      console.log('404')
+      // 请求的资源不存在
+      break
     default:
       console.log('服务器繁忙')
   }
@@ -53,11 +56,11 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   // 请求接口成功
   response => {
-    // console.log(response)
     // loadingInstance.close()
     if (response.status === 200) {
-      return Promise.resolve(response)
+      return Promise.resolve(response.data)
     } else {
+      // console.log(response)
       return Promise.reject(response)
     }
   },
