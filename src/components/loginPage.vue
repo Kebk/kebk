@@ -24,7 +24,7 @@
                   <input class="input-namer" type="text" placeholder="邮箱/用户名/已验证手机">
                 </div>
                 <div class="text-password">
-                  <input class="input-password" type="text" placeholder="密码">
+                  <input class="input-password" type="password" placeholder="密码">
                 </div>
                 <div class="text-forget">
                   <a href="">忘记密码</a>
