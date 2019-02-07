@@ -50,15 +50,15 @@ export default {
     return {
       width: 1920,
       imgList: [
-        { url: 'https://img.alicdn.com/tfs/TB1YwuvEZbpK1RjSZFyXXX_qFXa-520-280.jpg_q90_.webp', des: '1' },
-        { url: 'https://img.alicdn.com/simba/img/TB14dt2knnI8KJjy0FfSuwdoVXa.jpg', des: '2' },
-        { url: 'https://img.alicdn.com/simba/img/TB1sJy.gCcqBKNjSZFgSut_kXXa.jpg', des: '3' },
-        { url: 'https://img.alicdn.com/simba/img/TB19YZvDjTpK1RjSZKPSuu3UpXa.jpg', des: '4' }
+        { url: 'https://conrad-img.oss-cn-hangzhou.aliyuncs.com/kebk/home/%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF1.png', des: '1' },
+        { url: 'https://conrad-img.oss-cn-hangzhou.aliyuncs.com/kebk/home/%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF2.png', des: '2' }
       ]
     }
   },
   created () {
-    this.$api.user.test()
+    // this.$api.home.getSwiper().then((res) => {
+    //   this.imgList = res.data
+    // })
   },
   components: {
     NavHeader, Swiper, MainHeader, MainBottom
