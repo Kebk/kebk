@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import MainHeader from '@/components/mainHeader.vue'
-import NavHeader from '@/components/navHeader.vue'
+import MainHeader from '@/components/common/mainHeader.vue'
+import NavHeader from '@/components/common/navHeader.vue'
 import Product from '@/components/product.vue'
 export default {
   name: 'product',

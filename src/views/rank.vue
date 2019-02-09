@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import MainHeader from '@/components/mainHeader.vue'
-import NavHeader from '@/components/navHeader.vue'
+import MainHeader from '@/components/common/mainHeader.vue'
+import NavHeader from '@/components/common/navHeader.vue'
 export default {
   name: 'rank',
   components: {

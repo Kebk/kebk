@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import NavHeader from '@/components/navHeader.vue'
-import MainHeader from '@/components/mainHeader.vue'
-import MainBottom from '@/components/mainBottom.vue'
+import NavHeader from '@/components/common/navHeader.vue'
+import MainHeader from '@/components/common/mainHeader.vue'
+import MainBottom from '@/components/common/mainBottom.vue'
 import Swiper from '@/components/swiper.vue'
 export default {
   name: 'home',
