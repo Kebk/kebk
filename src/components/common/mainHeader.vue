@@ -3,7 +3,17 @@
     <div class="kebk-container">
       <!-- left -->
       <div class="header-left pull-left"
-          v-if="user">{{user.username}}</div>
+           v-if="user">
+        <p class="header-username">{{user.username}}</p>
+        <a href="javascript:;" @click="handleLogout">退出登录</a>
+        <!-- <div class="header-userinfo">
+          <div class="pull-right">
+            <router-link to="mime">个人中心</router-link>
+            <a href="javascript:;" @click="handleLogout">退出登录</a>
+          </div>
+          <div></div>
+        </div> -->
+      </div>
       <ul class="header-left pull-left clearfix"
           v-else>
         <li>
@@ -44,12 +54,14 @@ export default {
         path: '4',
         text: '联系客服'
       }],
-      // user: this.$store.state.user
-      user: this.$store.getters.userData
+      user: this.$store.state.user
     }
   },
-  created () {
-    console.log(this.user)
+  methods: {
+    handleLogout () {
+      this.$store.commit('LOGOUT')
+      this.user = this.$store.state.user
+    }
   }
 }
 </script>
@@ -78,4 +90,7 @@ export default {
           border-left 1px solid #999
         &:first-child a
           border-left none
+    .header-left
+      .header-username
+        padding 0 5px
 </style>

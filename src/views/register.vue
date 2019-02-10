@@ -114,8 +114,13 @@ export default {
         password: this.formData.password.value
       }
       this.$api.user.register(params).then(res => {
-        // 注册成功
-        this.$router.push('/')
+        if (res.code === 200) {
+          // 注册成功
+          this.$store.commit('LOGIN', res.data)
+          this.$router.push('/')
+        } else {
+          // 出错
+        }
       })
     }
   },

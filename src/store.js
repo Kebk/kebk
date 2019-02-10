@@ -5,27 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {
-      createTime: '2019-02-10T06:35:02.313Z',
-      credit: 0,
-      isLock: 0,
-      level: 0,
-      modifyTime: '2019-02-10T06:35:02.000Z',
-      password: '123456',
-      phone: '123456',
-      userType: 0,
-      username: 'test',
-      __v: 0,
-      _id: '5c5fc83a3638d54da4691220'
+    user: JSON.parse(sessionStorage.getItem('user')),
+    token: sessionStorage.getItem('token')
+  },
+  mutations: {
+    LOGIN (state, payload) {
+      state.user = payload.user
+      sessionStorage.setItem('user', JSON.stringify(payload.user))
+      state.token = payload.token
+      sessionStorage.setItem('token', payload.token)
+    },
+    LOGOUT (state, payload) {
+      state.user = null
+      state.token = null
+      sessionStorage.clear('user')
+      sessionStorage.clear('token')
     }
   },
-  getters: {
-    userData: state => {
-      console.log(state.user)
-      let { username, _id } = state.user
-      return { username, _id }
-    }
-  },
-  mutations: {},
   actions: {}
 })

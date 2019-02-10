@@ -4,9 +4,9 @@
       <p class="message">对不起，您要找的页面不见了</p>
       <div class="container clearfix">
         <img class="img-person"
-             src="../../src/assets/img/error-person.png">
+             src="../../../src/assets/img/error-person.png">
         <img class="img-chip"
-             src="../../src/assets/img/error-thing.png">
+             src="../../../src/assets/img/error-thing.png">
       </div>
       <p class="bottom">
         <router-link class="btn"
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: '404'
+  name: 'error-404'
 }
 </script>
 

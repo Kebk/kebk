@@ -76,7 +76,7 @@ export default {
       const params = { phone: this.formData.phone, password: this.formData.password }
       this.$api.user.login(params).then(res => {
         if (res.code === 200) {
-          this.$store.state.userData = res.data
+          this.$store.commit('LOGIN', res.data)
           this.$router.push('/')
         } else {
           this.isWarn = true
