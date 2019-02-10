@@ -1,25 +1,17 @@
-@font-face {font-family: "iconfont";
-  src: url('../iconfont/iconfont.eot?t=1549160337504'); /* IE9 */
-  src: url('../iconfont/iconfont.eot?t=1549160337504#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMUAAsAAAAABtQAAALFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqBLIEzATYCJAMMCwgABCAFhG0HRhsJBsiuMG7hSRshVqhDi5u/Tlkm+efiKBKJh//W+N03M7vf1NP/yOkkk4SXAJEEJYuFRIkQkmfyTlzuhz4OoQ3y+C++x/mmF127KRR1YWlUl2v5X2TdWVlgUqyT3CbNH+zN3j7JArqy9hWmRrQZAJmvrbeQXwiV1v0aOZFpghIfMEr10A4bcOOgEMrkA2/7PMdMF+UDyW+zuWTE80jACQ6wC0ctfAdygn7D2E0ED/A6gXbTCODVvZPzXJMCzAvEC+9UrqkQURQn3yrUDVuLeKvSml6n5Lzhvx//TEUTSZWBpdce7Qa5jZ/p27PNS3cpQZSg766QsQlQiPuNmZtqhcOEtWvqustrRUhLxZsGLolVNfyHRxJEDdR2glVDnR5KivkkfkX21LUZ1DK3C3DZpA5+O6T+/jbzitN3OlUYXv1UQ4KGT+ezxs0vncC/x9fDhLl0f87UczzXZNnN+7SJ/1DVgOovjhVm1TvsNktTf9ZJ73zN4+cjhw0hFcrxZzAg/6UxIrz7euheD4GZWRoHNKs9zf2/9G+84obLnSv/3VHAD/w3HmpWZ1g1oFVisPQHSgf2lFgOrLmEEixJfdn0RFdCF7l+jUCg32e6Yegmc6HVUIakxRSyVovEQt1EpcMhaq3O0W6DsLvDgFCtKG1YV2oIvTYk3b4h6/UgFuoblWE/1HqjFu2uR++RHZbDt2wzKsEAdBW8ocQiu7SI+lN0xUhxXs5Zl8iZj8Pk2EQ5v48J8hIrspKbErFgmWLY027DKCJImQpoZOxaJF0aH7dNDxozFOdaXMGQIlAAiKqAwSAJS4eLlsrPn0JOUUThjoaR4CXEMn50wKIwA4j7mmRQw6PcEylxpsSEBVSMxACvuVAEMwT4zZMKkCHG6BNSqSW0MUgdqhnbXhf/QLHTAjgyR4ocRcczrxKh4mjFqw6NGRQQEjE153IAAAA=') format('woff2'),
-  url('../iconfont/iconfont.woff?t=1549160337504') format('woff'),
-  url('../iconfont/iconfont.ttf?t=1549160337504') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('../iconfont/iconfont.svg?t=1549160337504#iconfont') format('svg'); /* iOS 4.1- */
+@font-face {
+  font-family: 'iconfont';
+  src: url('../iconfont/iconfont.eot');
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconfont/iconfont.woff2') format('woff2'),
+    url('../iconfont/iconfont.woff') format('woff'),
+    url('../iconfont/iconfont.ttf') format('truetype'),
+    url('../iconfont/iconfont.svg#iconfont') format('svg');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: 'iconfont' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.icon-jiantou-xia:before {
-  content: "\e7a9";
-}
-
-.icon-biaodiandidian:before {
-  content: "\e65e";
-}
-

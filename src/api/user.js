@@ -1,8 +1,8 @@
 import axios from '@/utils/http.js'
 
 const user = {
-  find (params) {
-    return axios.get('/user', { params })
+  verify (params) {
+    return axios.post('/user/verify', params)
   },
   register (params) {
     return axios.post('/user/register', params)

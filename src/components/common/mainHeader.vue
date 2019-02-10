@@ -1,14 +1,20 @@
 <template>
   <div class="main-header">
     <div class="kebk-container">
-      <div class="header-left"></div>
-      <ul class="header-right clearfix">
+      <!-- left -->
+      <div class="header-left pull-left"
+          v-if="user">{{user.username}}</div>
+      <ul class="header-left pull-left clearfix"
+          v-else>
         <li>
           <router-link to="login">您好，请登录</router-link>
         </li>
         <li class="header-register">
           <router-link to="register">免费注册</router-link>
         </li>
+      </ul>
+      <!-- right -->
+      <ul class="header-right pull-right clearfix">
         <li class="header-list"
             v-for="(item, index) of headerList"
             :key="index">
@@ -25,6 +31,7 @@ export default {
   data () {
     return {
       headerList: [{
+        icon: '&#xe635;',
         path: '1',
         text: '卖家中心'
       }, {
@@ -36,8 +43,13 @@ export default {
       }, {
         path: '4',
         text: '联系客服'
-      }]
+      }],
+      // user: this.$store.state.user
+      user: this.$store.getters.userData
     }
+  },
+  created () {
+    console.log(this.user)
   }
 }
 </script>
@@ -48,22 +60,22 @@ export default {
   background $c-light
   .kebk-container
     height 30px
-    .header-left
-      float left
-    .header-right
-      float right
+    .header-left, .header-right
+      line-height 30px
       li
         float left
         line-height 30px
         a
+          padding 0 9px
           color #999
-          margin-left 9px
-          padding-left 9px
-        &:hover
-          color $c-hover
-          text-decoration underline
+          &:hover
+            color $c-hover
+            text-decoration underline
       .header-register a
         color $c-hover
-      .header-list a
-        border-left 1px solid #999
+      .header-list
+        a
+          border-left 1px solid #999
+        &:first-child a
+          border-left none
 </style>

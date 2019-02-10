@@ -3,7 +3,7 @@ import axios from 'axios'
 // import { Loading } from 'element-ui'
 
 const instance = axios.create({
-  baseURL: 'http://101.132.35.13:8700',
+  baseURL: 'http://localhost:8700',
   timeout: 5000
 })
 
@@ -58,9 +58,16 @@ instance.interceptors.response.use(
   response => {
     // loadingInstance.close()
     if (response.status === 200) {
-      return Promise.resolve(response.data)
+      // 对服务器返回结果进行处理
+      if (response.data.code && response.data.code === 200) {
+        return Promise.resolve(response.data)
+      } else if (response.data.code === 0) {
+        return Promise.resolve(response.data)
+      } else {
+        console.error('未返回自定义状态码: ' + response.config.url)
+        return Promise.reject(response.data)
+      }
     } else {
-      // console.log(response)
       return Promise.reject(response)
     }
   },
