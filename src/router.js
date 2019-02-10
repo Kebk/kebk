@@ -3,14 +3,14 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "home" */ './views/home.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home.vue'),
       meta: {
         nav: 'home'
       }
@@ -18,7 +18,7 @@ export default new Router({
     {
       path: '/product',
       name: 'product',
-      component: () => import(/* webpackChunkName: "product" */ './views/product.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/product.vue'),
       meta: {
         nav: 'product'
       }
@@ -26,26 +26,43 @@ export default new Router({
     {
       path: '/rank',
       name: 'rank',
-      component: () => import(/* webpackChunkName: "rank" */ './views/rank.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/rank.vue'),
       meta: {
         nav: 'rank'
       }
     },
     {
-      path: '/404',
-      name: '404',
-      component: () => import(/* webpackChunkName: "errorPage" */ './views/404.vue')
-    },
-    {
       path: '/login',
       name: 'login',
-      component: () => import(/* webpackChunkName: "loginPage" */ './views/login.vue')
+      component: () => import(/* webpackChunkName: "homePage" */ './views/login.vue')
     },
     {
       path: '/register',
       name: 'register',
       component: () => import(/* webpackChunkName: "registerPage" */ './views/register.vue')
+    },
+    {
+      path: '/mime',
+      name: 'mime',
+      component: () => import(/* webpackChunkName: "userPage" */ './views/user/mime.vue'),
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '*',
+      component: () => import(/* webpackChunkName: "errorPage" */ './views/error/404.vue')
     }
-
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    // TODO:根据是否需要权限 是否登录跳转到相应的页面
+    // const token = store.state.token ? store.state.token : sessionStorage.getItem('token')
+  } else {
+    next()
+  }
+})
+
+export default router
