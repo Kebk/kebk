@@ -16,7 +16,9 @@
           <div class="classify-box">笔记本</div>
           <div class="classify-box">一体机</div>
           <div class="classify-box">台式机</div>
-          <div class="classify-box">电脑配件</div>
+          <div class="classify-box">外设</div>
+          <div class="classify-box">配件</div>
+          <div class="classify-box">更多..</div>
         </div>
       </div>
     </div>
@@ -35,7 +37,7 @@
         </div>
       </div>
     </div>
-    <main-bottom></main-bottom>
+    <MainBottom/>
   </div>
 </template>
 

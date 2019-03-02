@@ -11,25 +11,19 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: () => import(/* webpackChunkName: "homePage" */ './views/home.vue'),
-      meta: {
-        nav: 'home'
-      }
+      meta: { nav: 'home' }
     },
     {
       path: '/product',
       name: 'product',
       component: () => import(/* webpackChunkName: "homePage" */ './views/product.vue'),
-      meta: {
-        nav: 'product'
-      }
+      meta: { nav: 'product' }
     },
     {
       path: '/rank',
       name: 'rank',
       component: () => import(/* webpackChunkName: "homePage" */ './views/rank.vue'),
-      meta: {
-        nav: 'rank'
-      }
+      meta: { nav: 'rank' }
     },
     {
       path: '/login',
@@ -39,15 +33,36 @@ const router = new Router({
     {
       path: '/register',
       name: 'register',
-      component: () => import(/* webpackChunkName: "registerPage" */ './views/register.vue')
+      component: () => import(/* webpackChunkName: "homePage" */ './views/register.vue')
     },
     {
       path: '/mime',
       name: 'mime',
       component: () => import(/* webpackChunkName: "userPage" */ './views/user/mime.vue'),
-      meta: {
-        requireAuth: true
-      }
+      meta: { requireAuth: true }
+    },
+    {
+      path: '/agent',
+      component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/index.vue'),
+      redirect: '404',
+      meta: { requireAuth: true },
+      children: [
+        {
+          path: 'start',
+          name: 'agentStart',
+          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/agentStart.vue')
+        },
+        {
+          path: 'applySup',
+          name: 'applySup',
+          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/applySup.vue')
+        },
+        {
+          path: 'applyAgent',
+          name: 'applyAgent',
+          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/applyAgent.vue')
+        }
+      ]
     },
     {
       path: '*',

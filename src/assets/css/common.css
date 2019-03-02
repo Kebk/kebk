@@ -1,0 +1,92 @@
+/* 清除浮动 */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/* pc端居中容器 */
+.kebk-container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+/* 左右浮动 */
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+/* 表单 */
+.kebk-form {
+  width: 600px;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.kebk-form-item {
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+
+.kebk-form-item label {
+  float: left;
+  width: 120px;
+  line-height: 40px;
+  padding-right: 12px;
+  font-size: 14px;
+  color: #606266;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.kebk-form-item input {
+  height: 40px;
+  width: 480px;
+  padding: 0 15px;
+  line-height: 40px;
+  color: #606266;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+}
+
+
+.upload {
+  position: relative;
+  display: inline-block;
+  background: #D0EEFF;
+  border: 1px solid #99D3F5;
+  border-radius: 4px;
+  padding: 4px 12px;
+  overflow: hidden;
+  color: #1E88C7;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+}
+.upload input {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+.upload:hover {
+  background: #AADFFD;
+  border-color: #78C3F3;
+  color: #004974;
+  text-decoration: none;
+}

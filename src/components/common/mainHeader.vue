@@ -5,7 +5,8 @@
       <div class="header-left pull-left"
            v-if="user">
         <p class="header-username">{{user.username}}</p>
-        <a href="javascript:;" @click="handleLogout">退出登录</a>
+        <a href="javascript:;"
+           @click="handleLogout">退出登录</a>
         <!-- <div class="header-userinfo">
           <div class="pull-right">
             <router-link to="mime">个人中心</router-link>
@@ -17,10 +18,10 @@
       <ul class="header-left pull-left clearfix"
           v-else>
         <li>
-          <router-link to="login">您好，请登录</router-link>
+          <router-link to="/login">您好，请登录</router-link>
         </li>
         <li class="header-register">
-          <router-link to="register">免费注册</router-link>
+          <router-link to="/register">免费注册</router-link>
         </li>
       </ul>
       <!-- right -->
@@ -28,6 +29,7 @@
         <li class="header-list"
             v-for="(item, index) of headerList"
             :key="index">
+            <i v-if="item.icon" class="iconfont">&#xe635;</i>
           <router-link :to="item.path">{{item.text}}</router-link>
         </li>
       </ul>
@@ -42,14 +44,17 @@ export default {
     return {
       headerList: [{
         icon: '&#xe635;',
-        path: '1',
-        text: '卖家中心'
+        path: '/',
+        text: '首页'
       }, {
-        path: '2',
+        path: '1',
         text: '买家中心'
       }, {
+        path: '/agent/start',
+        text: '代理中心'
+      }, {
         path: '3',
-        text: '买家建议'
+        text: '商品分类'
       }, {
         path: '4',
         text: '联系客服'
@@ -76,21 +81,17 @@ export default {
       line-height 30px
       li
         float left
+        padding 0 9px
         line-height 30px
         a
-          padding 0 9px
           color #999
           &:hover
             color $c-hover
             text-decoration underline
       .header-register a
         color $c-hover
-      .header-list
-        a
-          border-left 1px solid #999
-        &:first-child a
+      .header-list &:first-child a
           border-left none
-    .header-left
-      .header-username
+    .header-left .header-username
         padding 0 5px
 </style>
