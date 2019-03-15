@@ -45,7 +45,7 @@
 import NavHeader from '@/components/common/navHeader.vue'
 import MainHeader from '@/components/common/mainHeader.vue'
 import MainBottom from '@/components/common/mainBottom.vue'
-import Swiper from '@/components/swiper.vue'
+import Swiper from './components/Swiper.vue'
 export default {
   name: 'home',
   data () {

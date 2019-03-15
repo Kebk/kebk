@@ -1,29 +1,10 @@
 # kebk
 
-## Project setup
-```
-npm install
-```
+## 目录结构
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+views 相关页面
+  agent 代理(卖家)
+  user 用户(买家)
+  error 错误页面
+  home 主页,登录注册
+  product 商品相关

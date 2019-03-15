@@ -10,36 +10,30 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home/home.vue'),
       meta: { nav: 'home' }
     },
     {
       path: '/product',
       name: 'product',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/product.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home/product.vue'),
       meta: { nav: 'product' }
     },
     {
       path: '/rank',
       name: 'rank',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/rank.vue'),
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home/rank.vue'),
       meta: { nav: 'rank' }
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/login.vue')
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home/login.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/register.vue')
-    },
-    {
-      path: '/mime',
-      name: 'mime',
-      component: () => import(/* webpackChunkName: "userPage" */ './views/user/mime.vue'),
-      meta: { requireAuth: true }
+      component: () => import(/* webpackChunkName: "homePage" */ './views/home/register.vue')
     },
     {
       path: '/agent',
@@ -61,6 +55,19 @@ const router = new Router({
           path: 'applyAgent',
           name: 'applyAgent',
           component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/applyAgent.vue')
+        }
+      ]
+    },
+    {
+      path: '/user',
+      component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/index.vue'),
+      redirect: '404',
+      meta: { requireAuth: true },
+      children: [
+        {
+          path: 'center',
+          name: 'userCenter',
+          component: () => import(/* webpackChunkName: "agentPage" */ './views/user/center.vue')
         }
       ]
     },

@@ -47,7 +47,7 @@ export default {
         path: '/',
         text: '首页'
       }, {
-        path: '1',
+        path: '/user/center',
         text: '买家中心'
       }, {
         path: '/agent/start',
