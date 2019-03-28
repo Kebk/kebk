@@ -1,15 +1,5 @@
 <template>
   <div class="login">
-    <div class="header kebk-container">
-      <div class="header-left pull-left">
-        <router-link to="/"
-                     class="header-logo">KEBK</router-link>
-        <span>欢迎登录</span>
-      </div>
-      <div class="header-right">
-        <router-link to="login">登录页面调查问卷</router-link>
-      </div>
-    </div>
     <div class="content">
       <div class="kebk-container">
         <div class="login-container">
@@ -52,13 +42,10 @@
         </div>
       </div>
     </div>
-    <main-bottom></main-bottom>
   </div>
 </template>
 
 <script>
-import MainBottom from '@/components/common/mainBottom.vue'
-
 export default {
   name: 'login',
   data () {
@@ -84,9 +71,6 @@ export default {
         }
       })
     }
-  },
-  components: {
-    MainBottom
   }
 }
 </script>
@@ -113,7 +97,7 @@ export default {
       color #999
       text-decoration none
       &:hover
-        color $c-hover
+        color #f10215
         text-decoration underline
 .content
   height 475px

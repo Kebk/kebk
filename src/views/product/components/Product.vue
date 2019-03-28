@@ -1,5 +1,6 @@
 <template>
-  <div class="product">
+  <div class="product"
+       @click="handleClick">
     <a href="javascript:;"
        class="image-container">
       <img :src="data.img">
@@ -18,10 +19,16 @@
 
 <script>
 export default {
+  name: 'Product',
   props: {
     data: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    handleClick () {
+      this.$router.push({ path: '/product/detail' })
     }
   }
 }

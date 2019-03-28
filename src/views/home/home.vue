@@ -1,9 +1,8 @@
 <template>
   <div class="home">
-    <MainHeader />
-    <NavHeader />
     <div class="swiper clearfix">
-      <Swiper :width="width"
+      <Swiper class="swiper-container"
+              :width="width"
               :imgList="imgList" />
     </div>
     <div class="classify">
@@ -37,14 +36,10 @@
         </div>
       </div>
     </div>
-    <MainBottom/>
   </div>
 </template>
 
 <script>
-import NavHeader from '@/components/common/navHeader.vue'
-import MainHeader from '@/components/common/mainHeader.vue'
-import MainBottom from '@/components/common/mainBottom.vue'
 import Swiper from './components/Swiper.vue'
 export default {
   name: 'home',
@@ -63,19 +58,21 @@ export default {
     // })
   },
   components: {
-    NavHeader, Swiper, MainHeader, MainBottom
+    Swiper
   }
 }
 </script>
 
 <style scoped lang="stylus">
 .swiper
-  height 500px
+  height 600px
   background rgba(0, 0, 0, 0.3)
+  .swiper-container
+    height 100%
 .classify
   margin-top 20px
   padding 20px 0
-  background $c-white
+  background #fff
   .classify-tag
     margin-bottom 40px
     font-size 24px
@@ -88,8 +85,8 @@ export default {
       float left
       width 30%
       height 200px
-      border 1px solid $c-black
+      border 1px solid #000
       cursor pointer
 .classify-bg
-  background $c-light
+  background #ededed
 </style>

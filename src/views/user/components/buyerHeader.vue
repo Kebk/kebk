@@ -73,7 +73,8 @@ export default {
       .nav-acitve
         background rgba(0, 0, 0, 0.02)
     .search
-      float right
+      float left 
+      margin-left 580px
       line-height 80px
       .search-input
         padding 0 10px

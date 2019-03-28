@@ -20,7 +20,10 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',
-      patterns: [path.resolve(__dirname, './src/assets/css/color.styl')]
+      patterns: [
+        path.resolve(__dirname, './src/assets/css/variable.styl'),
+        path.resolve(__dirname, './src/assets/css/common.styl')
+      ]
     }
   }
 }

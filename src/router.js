@@ -1,79 +1,121 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// Layout
+import HomeLayout from './views/layout/HomeLayout.vue'
+import CommonLayout from './views/layout/CommonLayout.vue'
 
 Vue.use(Router)
 
+// component: () => import(/* webpackChunkName: "errorPage" */ './views/home/home.vue')
+
+/**
+ * title 导航栏标题
+ * navActive 激活的导航栏名称
+ * requireAuth 需要登录后进行访问
+ */
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home/home.vue'),
-      meta: { nav: 'home' }
-    },
-    {
-      path: '/product',
-      name: 'product',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home/product.vue'),
-      meta: { nav: 'product' }
-    },
-    {
-      path: '/rank',
-      name: 'rank',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home/rank.vue'),
-      meta: { nav: 'rank' }
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home/login.vue')
+      component: HomeLayout,
+      redirect: '/home',
+      meta: { navActive: 'home' },
+      children: [
+        {
+          path: 'home',
+          name: 'homeIndex',
+          component: () => import('./views/home/home.vue')
+        }
+      ]
     },
     {
       path: '/register',
-      name: 'register',
-      component: () => import(/* webpackChunkName: "homePage" */ './views/home/register.vue')
+      component: CommonLayout,
+      meta: { title: '欢迎注册' },
+      children: [
+        {
+          path: '',
+          name: 'register',
+          component: () => import('./views/home/register.vue')
+        }
+      ]
+    },
+    {
+      path: '/login',
+      component: CommonLayout,
+      meta: { title: '欢迎登录' },
+      children: [
+        {
+          path: '',
+          name: 'login',
+          component: () => import('./views/home/login.vue')
+        }
+      ]
+    },
+    {
+      path: '/product',
+      component: HomeLayout,
+      redirect: '/product/index',
+      meta: { navActive: 'product' },
+      children: [
+        {
+          path: 'index',
+          name: 'productIndex',
+          component: () => import('./views/product/index.vue')
+        },
+        {
+          path: 'list',
+          name: 'productList',
+          component: () => import('./views/product/list.vue')
+        },
+        {
+          path: 'detail',
+          name: 'productDetail',
+          component: () => import('./views/product/detail.vue')
+        }
+      ]
     },
     {
       path: '/agent',
-      component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/index.vue'),
-      redirect: '404',
-      meta: { requireAuth: true },
+      component: CommonLayout,
+      redirect: '/agent/start',
+      meta: { requireAuth: true, title: '代理中心' },
       children: [
         {
           path: 'start',
           name: 'agentStart',
-          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/agentStart.vue')
+          component: () => import('./views/agent/agentStart.vue')
         },
         {
           path: 'applySup',
           name: 'applySup',
-          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/applySup.vue')
+          component: () => import('./views/agent/applySup.vue')
         },
         {
           path: 'applyAgent',
           name: 'applyAgent',
-          component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/applyAgent.vue')
+          component: () => import('./views/agent/applyAgent.vue')
         }
       ]
     },
     {
       path: '/user',
-      component: () => import(/* webpackChunkName: "agentPage" */ './views/agent/index.vue'),
-      redirect: '404',
-      meta: { requireAuth: true },
+      component: CommonLayout,
+      redirect: '/user/center',
+      meta: { requireAuth: true, title: '个人中心' },
       children: [
         {
           path: 'center',
           name: 'userCenter',
-          component: () => import(/* webpackChunkName: "agentPage" */ './views/user/center.vue')
+          component: () => import('./views/user/center.vue')
         }
       ]
     },
     {
       path: '*',
-      component: () => import(/* webpackChunkName: "errorPage" */ './views/error/404.vue')
+      component: () => import('./views/error/404.vue')
     }
   ]
 })

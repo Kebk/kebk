@@ -1,6 +1,5 @@
 <template>
-  <div class="sellerCenter clearfix">
-    <SellerHeader/>
+  <div class="buyerCenter clearfix">
     <div class="main-content">
       <div class="kebk-container">
         <div class="content-left">
@@ -14,14 +13,14 @@
           </ul>
         </div>
         <div class="content-right">
-          <div class="seller-information">
+          <div class="buyer-information">
             <div class="information-content">
               <div class="touxiang">头像</div>
               <div class="account">某某某（账号）</div>
-              <div class="seller-address">我的收获地址</div>
+              <div class="buyer-address">我的收获地址</div>
             </div>
           </div>
-          <div class="seller-box">
+          <div class="buyer-box">
             <ul class="box-list clearfix">
               <li class="state-list"
                   v-for="(item, index) of stateList"
@@ -37,9 +36,8 @@
 </template>
 
 <script>
-import SellerHeader from './components/sellerHeader.vue'
 export default {
-  name: 'sellerCenter',
+  name: 'buyerCenter',
   data () {
     return {
       navList: [
@@ -90,9 +88,6 @@ export default {
   },
   created () {
     this.navActive = this.$route.meta.nav
-  },
-  components: {
-    SellerHeader
   }
 }
 </script>
@@ -121,12 +116,12 @@ export default {
             padding 0 9px
             color black
             &:hover
-              color $c-hover
+              color #f10215
               text-decoration underline
     .content-right
       float left
       width 940px
-      .seller-information
+      .buyer-information
         width 938px
         border 1px solid gray
         height 120px
@@ -142,9 +137,9 @@ export default {
           .account
             float left
             margin-left 10px
-          .seller-address
+          .buyer-address
             float right
-      .seller-box
+      .buyer-box
         border 1px solid gray
         height 100px
         .box-list
@@ -157,7 +152,7 @@ export default {
               padding 0 64px
               color #999
               &:hover
-                color $c-hover
+                color #f10215
                 text-decoration underline
           .state-list
             a

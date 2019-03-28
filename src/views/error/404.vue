@@ -53,14 +53,14 @@ export default {
     .btn
       padding 10px 20px
       line-height 50px
-      color $c-white
-      background $c-blue
+      color #fff
+      background #00a1d6
       text-align center
       border-radius 4px
       outline none
       transition background-color 0.2s
       &:hover
-        background $c-lightblue
+        background #00b5e5
 .error-enter-active
   transition opacity 0.5s
 .error-enter
