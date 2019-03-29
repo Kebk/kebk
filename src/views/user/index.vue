@@ -1,6 +1,7 @@
 <template>
   <div class="buyerCenter clearfix">
     <div class="main-content">
+      <Sidebar/>
       <div class="kebk-container">
         <div class="content-left">
           <div class="left-title">全部功能</div>
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import Sidebar from './components/Sidebar.vue'
 export default {
   name: 'buyerCenter',
   data () {
@@ -88,6 +90,9 @@ export default {
   },
   created () {
     this.navActive = this.$route.meta.nav
+  },
+  components: {
+    Sidebar
   }
 }
 </script>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // Layout
 import HomeLayout from './views/layout/HomeLayout.vue'
 import CommonLayout from './views/layout/CommonLayout.vue'
+import UserLayout from './views/layout/UserLayout.vue'
 
 Vue.use(Router)
 
@@ -102,14 +103,19 @@ const router = new Router({
     },
     {
       path: '/user',
-      component: CommonLayout,
-      redirect: '/user/center',
+      component: UserLayout,
+      redirect: '/user/index',
       meta: { requireAuth: true, title: '个人中心' },
       children: [
         {
-          path: 'center',
-          name: 'userCenter',
-          component: () => import('./views/user/center.vue')
+          path: 'index',
+          name: 'userIndex',
+          component: () => import('./views/user/index.vue')
+        },
+        {
+          path: 'order',
+          name: 'userOrder',
+          component: () => import('./views/user/order.vue')
         }
       ]
     },

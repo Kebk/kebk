@@ -39,7 +39,7 @@ export default {
         path: '/',
         title: '首页'
       }, {
-        path: '/user/center',
+        path: '/user',
         title: '买家中心'
       }, {
         path: '/agent/start',
