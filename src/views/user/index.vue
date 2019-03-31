@@ -3,16 +3,6 @@
     <div class="main-content">
       <Sidebar/>
       <div class="kebk-container">
-        <div class="content-left">
-          <div class="left-title">全部功能</div>
-          <ul class="left-list">
-            <li class="nav-list"
-                v-for="(item, index) of navList"
-                :key="index">
-              <router-link :to="item.path">{{item.text}}</router-link>
-            </li>
-          </ul>
-        </div>
         <div class="content-right">
           <div class="buyer-information">
             <div class="information-content">
@@ -42,28 +32,6 @@ export default {
   name: 'buyerCenter',
   data () {
     return {
-      navList: [
-        {
-          path: '1',
-          text: '我的购物车'
-        },
-        {
-          path: '2',
-          text: '已买到的宝贝'
-        },
-        {
-          path: '3',
-          text: '我的收藏'
-        },
-        {
-          path: '4',
-          text: '我的足迹'
-        },
-        {
-          path: '5',
-          text: '退款维权'
-        }
-      ],
       stateList: [
         {
           path: '1',
@@ -103,26 +71,6 @@ export default {
   .kebk-container
     width 1140px
     margin 0 auto
-    .content-left
-      float left
-      width 200px
-      .left-title
-        text-align center
-        color #bd0200
-        font-size 20px
-        margin-bottom 4px
-      .left-list
-        line-height 20px
-        li
-          font-size 16px
-          line-height 50px
-          text-align center
-          a
-            padding 0 9px
-            color black
-            &:hover
-              color #f10215
-              text-decoration underline
     .content-right
       float left
       width 940px

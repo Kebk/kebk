@@ -1,5 +1,5 @@
 <template>
-  <div>侧边连</div>
+  <div></div>
 </template>
 
 <script>
