@@ -113,6 +113,16 @@ const router = new Router({
           component: () => import('./views/user/index.vue')
         },
         {
+          path: 'address',
+          name: 'userAddress',
+          component: () => import('./views/user/address.vue')
+        },
+        {
+          path: 'information',
+          name: 'userInfo',
+          component: () => import('./views/user/information.vue')
+        },
+        {
           path: 'order',
           name: 'userOrder',
           component: () => import('./views/user/order.vue')
