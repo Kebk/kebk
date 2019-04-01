@@ -1,15 +1,9 @@
 import axios from '@/utils/http.js'
 
-const user = {
-  find (params) {
-    return axios.get('/user', { params })
-  },
-  register (params) {
-    return axios.post('/user/register', params)
-  },
-  pass (params) {
-    return axios.post('/user/login', params)
-  }
+export function applyAgent (data) {
+  return axios({
+    url: '/agent/apply',
+    method: 'post',
+    data
+  })
 }
-
-export default user

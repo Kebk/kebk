@@ -42,7 +42,7 @@ export default {
         path: '/user',
         title: '买家中心'
       }, {
-        path: '/agent/start',
+        path: '/agent',
         title: '代理中心'
       }, {
         path: '/product/list',

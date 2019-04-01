@@ -23,7 +23,7 @@
 </template>
 
 <script>
-
+import { doRegister } from '@/api/user'
 export default {
   name: 'register',
   data () {
@@ -49,7 +49,7 @@ export default {
         username: this.formData.username.value,
         password: this.formData.password.value
       }
-      this.$api.user.register(params).then(res => {
+      doRegister(params).then(res => {
         if (res.code === 200) {
           // 注册成功
           this.$store.commit('LOGIN', res.data)

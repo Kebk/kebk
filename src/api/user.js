@@ -1,15 +1,17 @@
 import axios from '@/utils/http.js'
 
-const user = {
-  verify (params) {
-    return axios.post('/user/verify', params)
-  },
-  register (params) {
-    return axios.post('/user/register', params)
-  },
-  login (params) {
-    return axios.post('/user/login', params)
-  }
+export function doLogin (data) {
+  return axios({
+    url: '/user/login',
+    method: 'post',
+    data
+  })
 }
 
-export default user
+export function doRegister (data) {
+  return axios({
+    url: '/user/register',
+    method: 'post',
+    data
+  })
+}

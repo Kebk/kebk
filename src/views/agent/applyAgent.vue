@@ -1,42 +1,157 @@
 <template>
   <div class="kebk-container">
-    <p class="tips">请填写代理商信息</p>
-    <form class="kebk-form">
-      <div class="kebk-form-item">
-        <label>姓名</label>
-        <input type="text"
-               placeholder="请输入姓名">
-      </div>
-      <div class="kebk-form-item">
-        <label>上传证件照片</label>
-        <a href="javascript:;" class="upload">选择文件<input type="file">
-        </a>
-      </div>
-      <div class="kebk-form-item">
-        <label>备注</label>
-        <input type="text"
-               placeholder="请输入备注信息">
-      </div>
-      <div class="kebk-form-item">
-        <label>邀请码</label>
-        <input type="text"
-               placeholder="请输入姓名">
-      </div>
-    </form>
+    <p class="title">申请成为代理</p>
+    <p class="info">请如实填写以下信息</p>
+    <el-form class="form"
+             label-position="right"
+             label-width="100px"
+             :model="formData"
+             :rules="rules">
+      <el-form-item label="姓名">
+        <el-input v-model="formData.name"
+                  placeholder="请输入姓名"></el-input>
+      </el-form-item>
+      <el-form-item label="身份证号码">
+        <el-input v-model="formData.idCard"
+                  placeholder="请输入身份证号码"></el-input>
+      </el-form-item>
+      <el-form-item label="上传证件照片">
+        <el-upload class="upload-container"
+                   action="http://localhost:8700/upload/idcard"
+                   :show-file-list="false"
+                   :on-success="handleFrontSuccess"
+                   accept=".jpg,.jpeg,.png">
+          <img v-if="idCardFront"
+               :src="idCardFront"
+               class="avatar">
+          <div class="content"
+               v-else>
+            <i class="el-icon-plus avatar-uploader-icon"></i>
+            <p class="text">正面</p>
+          </div>
+        </el-upload>
+        <el-upload class="upload-container"
+                   action="http://localhost:8700/upload/idcard"
+                   :show-file-list="false"
+                   :on-success="handleBehindSuccess"
+                   accept=".jpg,.jpeg,.png">
+          <img v-if="idCardBehind"
+               :src="idCardBehind"
+               class="avatar">
+          <div class="content"
+               v-else>
+            <i class="el-icon-plus avatar-uploader-icon"></i>
+            <p class="text">反面</p>
+          </div>
+        </el-upload>
+      </el-form-item>
+      <el-form-item label="邀请码(选填)">
+        <el-input v-model="formData.inviteCode"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary"
+                   @click="handleApply">提交申请</el-button>
+      </el-form-item>
+      <el-form-item>
+        <ul class="tips">
+          <li>申请需要经过审核</li>
+          <li>预计在1-2个工作日内完成审核</li>
+        </ul>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
+import { applyAgent } from '@/api/agent'
+import { mapGetters } from 'vuex'
 export default {
-  name: 'apply-sup'
+  name: 'ApplyAgent',
+  data () {
+    return {
+      formData: {
+        name: '',
+        idCard: '',
+        inviteCode: ''
+      },
+      idCardFront: '',
+      idCardBehind: '',
+      rules: {
+        name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+        idCard: [{ required: true, message: '请输入身份证号码', trigger: 'blur' }]
+      }
+    }
+  },
+  methods: {
+    handleFrontSuccess (response, file, fileList) {
+      this.idCardFront = response.data.url
+    },
+    handleBehindSuccess (response, file, fileList) {
+      this.idCardBehind = response.data.url
+    },
+    handleApply () {
+      const data = {
+        userId: this.user._id,
+        ...this.formData,
+        idCardFront: this.idCardFront,
+        idCardBehind: this.idCardBehind,
+        inviteCode: this.inviteCode
+      }
+      applyAgent(data).then(res => {
+        this.$message({
+          message: '申请成功!',
+          type: 'success'
+        })
+      })
+    }
+  },
+  computed: {
+    ...mapGetters(['user'])
+  }
 }
 </script>
 
 <style scoped lang="stylus">
 .kebk-container
-  padding 100px 0
-  .tips
-    line-height 100px
+  padding 20px 0
+  .title
+    line-height 80px
     font-size 24px
     text-align center
+  .info
+    text-align center
+    line-height 50px
+    color #a9b0b4
+  .form
+    width 600px
+    margin 0 auto
+    .upload-container
+      width 234px
+      position relative
+      display inline-block
+      margin-right 10px
+      color #8c939d
+      border 1px dashed #d9d9d9
+      border-radius 6px
+      cursor pointer
+      overflow hidden
+      &:hover
+        border-color #409EFF
+      .avatar
+        width 234px
+        height 145px
+        display block
+      .content
+        padding 35px 0
+        .avatar-uploader-icon
+          font-size 28px
+          width 234px
+          text-align center
+        .text
+          line-height 35px
+    .tips li
+      line-height 18px
+      font-size 12px
+      color #a9b0b4
+      list-style disc
 </style>

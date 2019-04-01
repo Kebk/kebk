@@ -81,13 +81,13 @@ const router = new Router({
     {
       path: '/agent',
       component: CommonLayout,
-      redirect: '/agent/start',
+      redirect: '/agent/index',
       meta: { requireAuth: true, title: '代理中心' },
       children: [
         {
-          path: 'start',
-          name: 'agentStart',
-          component: () => import('./views/agent/agentStart.vue')
+          path: 'index',
+          name: 'agentIndex',
+          component: () => import('./views/agent/index.vue')
         },
         {
           path: 'applySup',

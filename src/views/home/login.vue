@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { doLogin } from '@/api/user'
 export default {
   name: 'login',
   data () {
@@ -61,7 +62,7 @@ export default {
   methods: {
     handleLogin () {
       const params = { phone: this.formData.phone, password: this.formData.password }
-      this.$api.user.login(params).then(res => {
+      doLogin(params).then(res => {
         if (res.code === 200) {
           this.$store.commit('LOGIN', res.data)
           this.$router.push('/')
