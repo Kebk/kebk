@@ -81,4 +81,6 @@ export default {
       border-left 1px solid #5c5c5c
     .right li:first-child span
       border none
+    .header-username
+      color white
 </style>
