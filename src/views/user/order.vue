@@ -10,10 +10,6 @@
           </li>
         </ul>
       </div>
-      <div class="header-right">
-        <input type="text" class="header-input" placeholder="输入商品名称或订单号搜索">
-        <input type="submit" class="header-button" value="搜索">
-      </div>
     </div>
     <div class="order-info">
       <table class="order-table">
@@ -27,7 +23,8 @@
               <span class="number">
                 <span>订单号：</span>
                 <span>75625474</span>
-                <router-link :to="1" class="delete-icon"></router-link>
+                <router-link :to="1"
+                             class="delete-icon"></router-link>
               </span>
             </th>
           </tr>
@@ -44,35 +41,35 @@
 </template>
 
 <script>
-  export default {
-    name: "order",
-    data() {
-      return {
-        titleList: [
-          {
-              id:"1",
-              path:'/user/order',
-              text:"全部订单"
-          },{
-            id:"2",
-            path:'/1',
-            text:"待付款"
-          },{
-            id:"3",
-            path:'/1',
-            text:"待发货"
-          },{
-            id:"4",
-            path:'/1',
-            text:"已发货"
-          },{
-            id:"5",
-            path:'/1',
-            text:"待评价"
-          }]
-      }
+export default {
+  name: 'order',
+  data () {
+    return {
+      titleList: [
+        {
+          id: '1',
+          path: '/user/order',
+          text: '全部订单'
+        }, {
+          id: '2',
+          path: '/1',
+          text: '待付款'
+        }, {
+          id: '3',
+          path: '/1',
+          text: '待发货'
+        }, {
+          id: '4',
+          path: '/1',
+          text: '已发货'
+        }, {
+          id: '5',
+          path: '/1',
+          text: '待评价'
+        }]
     }
   }
+}
 </script>
 
 <style scoped lang="stylus">
@@ -89,7 +86,7 @@
         list-style none
         li
           float left
-          width 110px!important
+          width 110px !important
           padding 10px 0
           font-weight 900
           font-size 18px
@@ -101,7 +98,6 @@
             text-decoration none
             &:hover
               color $blue
-
     .header-right
       float right
       padding-top 14px
@@ -149,7 +145,7 @@
                 float right
                 margin-left 440px
                 margin-right 20px
-                background-image url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-web/p/20150730/style/img/x1/icon-normal-s33e647f656-a21248af33.png)
+                background-image url('//yanxuan-static.nosdn.127.net/hxm/yanxuan-web/p/20150730/style/img/x1/icon-normal-s33e647f656-a21248af33.png') // yanxuan-static.nosdn.127.net/hxm/yanxuan-web/p/20150730/style/img/x1/icon-normal-s33e647f656-a21248af33.png)
                 background-repeat no-repeat
                 background-position 0 -927px
                 height 16px

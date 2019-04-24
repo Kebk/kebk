@@ -6,8 +6,10 @@
              label-position="right"
              label-width="100px"
              :model="formData"
-             :rules="rules">
-      <el-form-item label="姓名">
+             :rules="rules"
+             ref="formData">
+      <el-form-item label="姓名"
+                    porp="name">
         <el-input v-model="formData.name"
                   placeholder="请输入姓名"></el-input>
       </el-form-item>
@@ -45,12 +47,23 @@
           </div>
         </el-upload>
       </el-form-item>
+      <el-form-item label="选择供应商">
+        <el-select v-model="formData.supplierId"
+                   placeholder="请选择供应商"
+                   style="width:500px;">
+          <el-option v-for="item in supplierList"
+                     :key="item.supplierId._id"
+                     :label="item.supplierId.name"
+                     :value="item.supplierId._id">
+          </el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="邀请码(选填)">
         <el-input v-model="formData.inviteCode"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary"
-                   @click="handleApply">提交申请</el-button>
+                   @click="handleApply('formData')">提交申请</el-button>
       </el-form-item>
       <el-form-item>
         <ul class="tips">
@@ -63,7 +76,7 @@
 </template>
 
 <script>
-import { applyAgent } from '@/api/agent'
+import { applyAgent, getSupplierList } from '@/api/user'
 import { mapGetters } from 'vuex'
 export default {
   name: 'ApplyAgent',
@@ -72,8 +85,10 @@ export default {
       formData: {
         name: '',
         idCard: '',
+        supplierId: '',
         inviteCode: ''
       },
+      supplierList: [],
       idCardFront: '',
       idCardBehind: '',
       rules: {
@@ -89,21 +104,31 @@ export default {
     handleBehindSuccess (response, file, fileList) {
       this.idCardBehind = response.data.url
     },
-    handleApply () {
-      const data = {
-        userId: this.user._id,
-        ...this.formData,
-        idCardFront: this.idCardFront,
-        idCardBehind: this.idCardBehind,
-        inviteCode: this.inviteCode
-      }
-      applyAgent(data).then(res => {
-        this.$message({
-          message: '申请成功!',
-          type: 'success'
-        })
+    handleApply (formData) {
+      this.$refs[formData].validate((valid) => {
+        if (valid) {
+          const data = {
+            userId: this.user._id,
+            ...this.formData,
+            idCardFront: this.idCardFront,
+            idCardBehind: this.idCardBehind,
+            inviteCode: this.inviteCode
+          }
+          applyAgent(data).then(res => {
+            this.$message({
+              message: '申请成功!',
+              type: 'success'
+            })
+            this.$router.push('/user/index')
+          })
+        }
       })
     }
+  },
+  created () {
+    getSupplierList().then(res => {
+      this.supplierList = res.data
+    })
   },
   computed: {
     ...mapGetters(['user'])

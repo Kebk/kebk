@@ -130,6 +130,19 @@ const router = new Router({
       ]
     },
     {
+      path: '/order',
+      component: CommonLayout,
+      redirect: '/order/start',
+      meta: { requireAuth: true, title: '订单中心' },
+      children: [
+        {
+          path: 'start',
+          name: 'orderStart',
+          component: () => import('./views/order/start.vue')
+        }
+      ]
+    },
+    {
       path: '*',
       component: () => import('./views/error/404.vue')
     }

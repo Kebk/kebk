@@ -12,12 +12,22 @@
           <p>Product</p>
         </div>
         <div class="classify-container clearfix">
-          <div class="classify-box">笔记本</div>
-          <div class="classify-box">一体机</div>
-          <div class="classify-box">台式机</div>
-          <div class="classify-box">外设</div>
-          <div class="classify-box">配件</div>
-          <div class="classify-box">更多..</div>
+          <div class="classify-box">
+            <img src="../../assets/img/home-1.png"
+                 alt="笔记本">
+          </div>
+          <div class="classify-box">
+            <img src="../../assets/img/home-2.png"
+                 alt="一体机"></div>
+          <div class="classify-box">
+            <img src="../../assets/img/home-3.png"
+                 alt="台式机"></div>
+          <div class="classify-box">
+            <img src="../../assets/img/home-4.png"
+                 alt="外设"></div>
+          <div class="classify-box">
+            <div>更多..</div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,11 +38,22 @@
           <p>Brand</p>
         </div>
         <div class="classify-container clearfix">
-          <div class="classify-box">自营产品</div>
-          <div class="classify-box">戴尔</div>
-          <div class="classify-box">华硕</div>
-          <div class="classify-box">联想</div>
-          <div class="classify-box">外星人</div>
+          <div class="classify-box">
+            <img src="../../assets/img/classify-1.png"
+                 alt="自营产品">
+          </div>
+          <div class="classify-box">
+            <img src="../../assets/img/classify-2.png"
+                 alt="戴尔"></div>
+          <div class="classify-box">
+            <img src="../../assets/img/classify-3.jpg"
+                 alt="华硕"></div>
+          <div class="classify-box">
+            <img src="../../assets/img/classify-4.png"
+                 alt="联想"></div>
+          <div class="classify-box">
+            <img src="../../assets/img/classify-5.jpg"
+                 alt="外星人"></div>
         </div>
       </div>
     </div>
@@ -81,11 +102,10 @@ export default {
     margin 0 auto
     text-align center
     .classify-box
-      margin 0 0 10px 10px
+      margin-bottom 10px
       float left
-      width 30%
+      width 33%
       height 200px
-      border 1px solid #000
       cursor pointer
 .classify-bg
   background #ededed

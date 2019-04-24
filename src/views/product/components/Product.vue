@@ -1,18 +1,15 @@
 <template>
   <div class="product"
        @click="handleClick">
-    <a href="javascript:;"
-       class="image-container">
-      <img :src="data.img">
-    </a>
-    <div class="price">
-      <span>${{data.price}}</span>
-    </div>
-    <a href="javacsript:;"
-       class="pro-name"
-       :title="data.title">{{data.name}}</a>
-    <div class="shop">
-      <a href="javascript:;">{{data.shop}}</a>
+    <img class="product-img"
+         :src="item.image">
+    <p class="product-name"
+       :title="item.name">{{item.name}}</p>
+    <p class="product-price">￥{{item.salesPrice}}</p>
+    <p class="product-shop">{{item.supplierId.name}}</p>
+    <div style="text-align:center">
+      <el-button type="primary"
+                 size="small">查看详情</el-button>
     </div>
   </div>
 </template>
@@ -21,14 +18,14 @@
 export default {
   name: 'Product',
   props: {
-    data: {
+    item: {
       type: Object,
       required: true
     }
   },
   methods: {
     handleClick () {
-      this.$router.push({ path: '/product/detail' })
+      this.$router.push({ path: '/product/detail', query: { _id: this.item._id } })
     }
   }
 }
@@ -36,37 +33,28 @@ export default {
 
 <style scoped lang="stylus">
 .product
-  width 240px
-  padding 9px 9px 15px
-  border 1px solid #ededed
-  transition box-shadow 0.2s
+  padding-bottom 20px
   &:hover
-    box-shadow 0 0 2px 2px #f8f8f8
-  .image-container
-    display block
-    width 240px
-    height 240px
-    img
-      width 100%
-      height 100%
-  .price
-    margin 5px 0 5px
-    color #e4393c
-    font-size 24px
-  .pro-name
-    color #3d3d3d
-    font-size 14px
+    box-shadow 1px 1px 8px rgba(0, 0, 0, 0.2)
+    background-color #f4f0ea
+  .product-img
+    width 100%
+    height 250px
+    margin-bottom 20px
+  .product-name
+    padding 0 10px
+    margin-bottom 10px
     overflow hidden
     text-overflow ellipsis
-    display -webkit-box
-    -webkit-box-orient vertical
-    -webkit-line-clamp 2
-    transition all 2s
-    &:hover
-      text-decoration underline
-  .shop
-    margin-top 5px
-    a
-      color #6c757d
-      text-decoration underline
+    white-space nowrap
+  .product-price
+    margin-bottom 10px
+    color #d4282d
+    text-align center
+    font-size 16px
+  .product-shop
+    margin-bottom 10px
+    padding-right 10px
+    text-align center
+    // text-decoration underline
 </style>

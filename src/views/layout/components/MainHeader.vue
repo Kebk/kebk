@@ -1,12 +1,25 @@
 <template>
   <div class="main-header">
     <div class="kebk-container">
-      <!-- <div>{{user}}</div> -->
       <div class="left pull-left clearfix"
            v-if="user">
-        <p class="header-username">{{user.username}}</p>
-        <a href="javascript:;"
-           @click="handleLogout">退出登录</a>
+        <div class="header-username"
+             @mouseover="showMenu=true"
+             @mouseout="showMenu=false">
+          <p>{{user.username}}
+            <i class="iconfont">&#xe602;</i>
+          </p>
+          <div class="user-menu"
+               v-show="showMenu">
+            <li>
+              <router-link to="/user/index">个人中心</router-link>
+            </li>
+            <li>
+              <a href="javascript:;"
+                 @click="handleLogout">退出登录</a>
+            </li>
+          </div>
+        </div>
       </div>
       <ul class="left pull-left clearfix"
           v-else>
@@ -40,14 +53,12 @@ export default {
         title: '首页'
       }, {
         path: '/user',
-        title: '买家中心'
+        title: '个人中心'
       }, {
         path: '/agent',
         title: '代理中心'
-      }, {
-        path: '/product/list',
-        title: '商品分类'
-      }]
+      }],
+      showMenu: false
     }
   },
   methods: {
@@ -82,5 +93,24 @@ export default {
     .right li:first-child span
       border none
     .header-username
-      color white
+      position relative
+      color #ccc
+      font-size 14px
+      line-height 35px
+      &:hover
+        color #fff
+      i
+        font-size 12px
+        margin-left 4px
+      .user-menu
+        position absolute
+        left -6px
+        width 74px
+        background #fff
+        box-shadow 0 0 3px 0 rgba(0, 0, 0, 0.2)
+        li
+          list-style none
+          border-bottom 1px solid #ddd
+          a:hover
+            color #000
 </style>

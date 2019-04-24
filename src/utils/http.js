@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
+import store from '@/store'
 
 const instance = axios.create({
   baseURL: 'http://localhost:8700',
@@ -9,11 +10,10 @@ const instance = axios.create({
 // 请求拦截 request
 instance.interceptors.request.use(
   config => {
-    // 每次发送请求之前判断vuex中是否存在token
-    // 如果存在，则统一在http请求的header都加上token，这样后台根据token判断你的登录情况
-    // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
-    // const token = store.state.token
-    // token && (config.headers.Authorization = token)
+    const token = store.getters.token
+    if (token) {
+      config.headers.Authorization = token
+    }
     return config
   },
   error => {
@@ -35,8 +35,14 @@ instance.interceptors.response.use(
         type: 'error',
         duration: 2 * 1000
       })
+      return Promise.reject(result)
     } else {
       console.log('http:1')
+      Message({
+        message: '服务器繁忙',
+        type: 'error',
+        duration: 2 * 1000
+      })
       return Promise.reject(response)
     }
   },
@@ -44,6 +50,11 @@ instance.interceptors.response.use(
   error => {
     if (error) {
       console.log(error)
+      Message({
+        message: '服务器繁忙',
+        type: 'error',
+        duration: 2 * 1000
+      })
       return Promise.reject(error)
     }
   }

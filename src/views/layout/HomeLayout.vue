@@ -25,5 +25,5 @@ export default {
 .layout
   height 100%
   .container
-    min-height 700px
+    // min-height 700px
 </style>
