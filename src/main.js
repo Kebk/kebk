@@ -7,6 +7,7 @@ import './assets/css/reset.css'
 
 // plugin
 import './plugin/element'
+import './plugin/time'
 
 Vue.config.productionTip = false
 

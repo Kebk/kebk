@@ -119,7 +119,8 @@ export default {
       }
       doLogin(params).then(res => {
         this.$store.commit('LOGIN', res.data)
-        this.$router.push('/')
+        // this.$router.push('/')
+        this.$router.go(-1)
       }).catch(err => {
         this.showMsg = true
         this.message = err.msg

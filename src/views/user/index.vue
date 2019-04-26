@@ -25,7 +25,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'index',
+  name: 'UserIndex',
   data () {
     return {
       indexList: [

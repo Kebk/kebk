@@ -4,10 +4,10 @@ import Router from 'vue-router'
 import HomeLayout from './views/layout/HomeLayout.vue'
 import CommonLayout from './views/layout/CommonLayout.vue'
 import UserLayout from './views/layout/UserLayout.vue'
+// vuex store
+import store from '@/store'
 
 Vue.use(Router)
-
-// component: () => import(/* webpackChunkName: "errorPage" */ './views/home/home.vue')
 
 /**
  * title 导航栏标题
@@ -105,27 +105,25 @@ const router = new Router({
       path: '/user',
       component: UserLayout,
       redirect: '/user/index',
-      meta: { requireAuth: true, title: '个人中心' },
+      meta: { title: '个人中心' },
       children: [
         {
           path: 'index',
           name: 'userIndex',
-          component: () => import('./views/user/index.vue')
+          component: () => import('./views/user/information.vue'),
+          meta: { requireAuth: true }
         },
         {
           path: 'address',
           name: 'userAddress',
-          component: () => import('./views/user/address.vue')
-        },
-        {
-          path: 'information',
-          name: 'userInfo',
-          component: () => import('./views/user/information.vue')
+          component: () => import('./views/user/address.vue'),
+          meta: { requireAuth: true }
         },
         {
           path: 'order',
           name: 'userOrder',
-          component: () => import('./views/user/order.vue')
+          component: () => import('./views/user/order.vue'),
+          meta: { requireAuth: true }
         }
       ]
     },
@@ -138,7 +136,8 @@ const router = new Router({
         {
           path: 'start',
           name: 'orderStart',
-          component: () => import('./views/order/start.vue')
+          component: () => import('./views/order/start.vue'),
+          meta: { requireAuth: true }
         }
       ]
     },
@@ -151,8 +150,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    // TODO:根据是否需要权限 是否登录跳转到相应的页面
-    // const token = store.state.token ? store.state.token : sessionStorage.getItem('token')
+    const token = store.state.token ? store.state.token : sessionStorage.getItem('token')
+    if (token) {
+      next()
+    } else {
+      next({ path: '/login' })
+    }
   } else {
     next()
   }

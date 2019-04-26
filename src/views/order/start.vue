@@ -31,7 +31,7 @@
       <div class="order-total">
         <div>
           <span class="title">商品合计：</span>
-          <span>￥{{orderData[0].total}}</span>
+          <span>￥{{totalPrice}}</span>
         </div>
         <div>
           <span class="title">运费：</span>
@@ -39,7 +39,7 @@
         </div>
         <div>
           <span class="title">应付总金额：</span>
-          <span style="color:#d4282d;font-size:20px">￥{{orderData[0].total}}</span>
+          <span style="color:#d4282d;font-size:20px">￥{{totalPrice}}</span>
         </div>
         <el-button style="margin-top:40px"
                    type="primary"
@@ -55,7 +55,8 @@ export default {
   name: 'OrderStart',
   data () {
     return {
-      orderData: []
+      orderData: [],
+      totalPrice: 0 // 商品总价
     }
   },
   methods: {
@@ -74,6 +75,9 @@ export default {
       let arr = []
       arr.push(res.data)
       this.orderData = arr
+      this.orderData.forEach(obj => {
+        this.totalPrice += obj.total
+      })
     })
   }
 }

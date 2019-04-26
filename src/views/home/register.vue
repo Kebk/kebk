@@ -28,11 +28,13 @@
         <el-form-item label="密码"
                       prop="password">
           <el-input v-model="formData.password"
+                    type="password"
                     placeholder="请输入密码"></el-input>
         </el-form-item>
         <el-form-item label="确认密码"
                       prop="repassword">
           <el-input v-model="formData.repassword"
+                    type="password"
                     placeholder="请再次输入密码"></el-input>
         </el-form-item>
         <el-form-item>

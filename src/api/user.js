@@ -40,9 +40,25 @@ export function applySupplier (data) {
   })
 }
 
-export function getSupplierList (data) {
+export function getSupplierList () {
   return axios({
     url: '/supplier/allList',
     method: 'get'
+  })
+}
+
+export function getUserInfo (data) {
+  return axios({
+    url: '/user/detail',
+    method: 'post',
+    data
+  })
+}
+
+export function updateUser (data) {
+  return axios({
+    url: '/user/updata',
+    method: 'post',
+    data
   })
 }

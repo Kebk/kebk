@@ -9,8 +9,8 @@
              src="../../../src/assets/img/error-thing.png">
       </div>
       <p class="bottom">
-        <router-link class="btn"
-                     to='/'>返回首页</router-link>
+        <el-button type="primary"
+                   @click="handleBack">返回上一页</el-button>
       </p>
 
     </div>
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-  name: 'error-404'
+  name: 'error-404',
+  methods: {
+    handleBack () {
+      this.$router.go(-1)
+    }
+  }
 }
 </script>
 

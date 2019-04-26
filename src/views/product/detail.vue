@@ -38,14 +38,22 @@ export default {
   },
   methods: {
     handleBug () {
-      const data = {
-        userId: this.user._id,
-        productId: this.$route.query._id,
-        number: 1
+      if (!this.token) {
+        this.$message({
+          type: 'warning',
+          message: '请登录！'
+        })
+        this.$router.push({ path: '/login' })
+      } else {
+        const data = {
+          userId: this.user._id,
+          productId: this.$route.query._id,
+          number: 1
+        }
+        startOrder(data).then(res => {
+          this.$router.push({ path: '/order/start', query: { _id: res.data._id } })
+        })
       }
-      startOrder(data).then(res => {
-        this.$router.push({ path: '/order/start', query: { _id: res.data._id } })
-      })
     }
   },
   created () {
@@ -54,7 +62,7 @@ export default {
     })
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['user', 'token'])
   }
 }
 </script>
