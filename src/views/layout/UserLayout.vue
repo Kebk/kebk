@@ -39,8 +39,8 @@ export default {
         {
           name: '账号管理',
           children: [
-            { path: '/user/index', text: '个人中心' },
-            { path: '/user/address', text: '地址管理' }
+            { path: '/user/index', text: '个人中心' }
+            // { path: '/user/address', text: '地址管理' }
           ]
         },
         {

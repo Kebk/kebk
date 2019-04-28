@@ -87,17 +87,20 @@ const router = new Router({
         {
           path: 'index',
           name: 'agentIndex',
-          component: () => import('./views/agent/index.vue')
+          component: () => import('./views/agent/index.vue'),
+          meta: { requireAuth: true }
         },
         {
           path: 'applySup',
           name: 'applySup',
-          component: () => import('./views/agent/applySup.vue')
+          component: () => import('./views/agent/applySup.vue'),
+          meta: { requireAuth: true }
         },
         {
           path: 'applyAgent',
           name: 'applyAgent',
-          component: () => import('./views/agent/applyAgent.vue')
+          component: () => import('./views/agent/applyAgent.vue'),
+          meta: { requireAuth: true }
         }
       ]
     },

@@ -5,14 +5,14 @@
         <span class="logo">
           <router-link to="/">KEBK</router-link>
         </span>
-        <div class="search">
+        <!-- <div class="search">
           <i class="iconfont search-icon">&#xe600;</i>
           <input class="search-input"
                  type="text"
                  placeholder="搜索商品">
           <button class="search-button"
                   @click="hanleSearch">搜索</button>
-        </div>
+        </div> -->
       </div>
       <ul class="nav clearfix">
         <li v-for="(item, index) in list"

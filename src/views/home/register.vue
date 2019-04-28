@@ -25,12 +25,24 @@
           <el-input v-model="formData.username"
                     placeholder="请输入用户名"></el-input>
         </el-form-item>
+        <el-row style="margin:0 0 10px 80px">
+          <ul style="list-style:disc;color:#a9b0b4;">
+            <li>字母开头</li>
+            <li>6位以上(可以包含数字 字母 _ -)</li>
+          </ul>
+        </el-row>
         <el-form-item label="密码"
                       prop="password">
           <el-input v-model="formData.password"
                     type="password"
                     placeholder="请输入密码"></el-input>
         </el-form-item>
+        <el-row style="margin:0 0 10px 80px">
+          <ul style="list-style:disc;color:#a9b0b4;">
+            <li>字母开头</li>
+            <li>6位以上(可以包含数字 字母 _ -)</li>
+          </ul>
+        </el-row>
         <el-form-item label="确认密码"
                       prop="repassword">
           <el-input v-model="formData.repassword"

@@ -48,21 +48,18 @@ export default {
   name: 'MainHeader',
   data () {
     return {
-      headerList: [{
-        path: '/',
-        title: '首页'
-      }, {
-        path: '/user',
-        title: '个人中心'
-      }, {
-        path: '/agent',
-        title: '代理中心'
-      }],
+      headerList: [
+        { path: '/', title: '首页' },
+        { path: '/user', title: '个人中心' },
+        { path: '/agent/applySup', title: '成为供应商' },
+        { path: '/product/index', title: '商品列表' }
+      ],
       showMenu: false
     }
   },
   methods: {
     handleLogout () {
+      this.$router.push({ path: '/' })
       this.$store.commit('LOGOUT')
     }
   },

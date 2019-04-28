@@ -2,7 +2,7 @@ import axios from '@/utils/http.js'
 
 export function getProductList (data) {
   return axios({
-    url: '/product/list',
+    url: '/product/allList',
     method: 'get',
     data
   })

@@ -11,6 +11,11 @@
           <p>
             <span class="title">价格</span>
             <span class="price">￥{{detail.salesPrice}}</span>
+            <span class="price">￥{{detail.salesPrice}}</span>
+          </p>
+          <p>
+            <span class="title">库存</span>
+            <span class="value">{{detail.storage}}</span>
           </p>
           <p v-for="(item,index) in detail.parameter"
              :key="index">

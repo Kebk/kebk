@@ -2,6 +2,7 @@
   <div class="product-container">
     <div class="kebk-container">
       <div class="product-list clearfix">
+        <el-row v-if="goodsList.length===0">暂无商品</el-row>
         <el-row :gutter="20">
           <el-col :span="6"
                   v-for="(item,index) in goodsList"
@@ -27,10 +28,7 @@ export default {
     }
   },
   created () {
-    const listQuery = {
-      pageSize: 100
-    }
-    getProductList(listQuery).then(res => {
+    getProductList().then(res => {
       this.goodsList = res.data.list
     })
   },
