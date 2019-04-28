@@ -9,7 +9,8 @@
           <i class="iconfont search-icon">&#xe600;</i>
           <input class="search-input"
                  type="text"
-                 placeholder="搜索商品">
+                 placeholder="搜索商品"
+                 v-model="keywords">
           <button class="search-button"
                   @click="hanleSearch">搜索</button>
         </div> -->
@@ -35,11 +36,14 @@ export default {
       list: [
         { name: 'home', title: '首页', path: '/' },
         { name: 'product', title: '主营产品', path: '/product' }
-      ]
+      ],
+      keywords: ''
     }
   },
   methods: {
-    hanleSearch () { }
+    hanleSearch () {
+      this.$router.push({ path: '/product/index', query: { keywords: this.keywords } })
+    }
   },
   computed: {
     navActive () {
