@@ -16,12 +16,15 @@
 
 <script>
 export default {
-  name: 'Product',
+  name: 'ProductItem',
   props: {
     item: {
       type: Object,
       required: true
     }
+  },
+  created () {
+    console.log(this.item)
   },
   methods: {
     handleClick () {

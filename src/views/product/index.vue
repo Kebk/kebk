@@ -12,6 +12,11 @@
                      :item="item" />
           </el-col>
         </el-row>
+        <Pagination v-show="listQuery.total>0"
+                    :page.sync="listQuery.page"
+                    :size.sync="listQuery.pageSize"
+                    :total="listQuery.total"
+                    @pagination="getList" />
       </div>
     </div>
   </div>
@@ -20,21 +25,31 @@
 <script>
 import { getProductList } from '@/api/product'
 import Product from './components/Product.vue'
+import Pagination from './components/Pagination'
 export default {
   name: 'ProductIndex',
   data: function () {
     return {
-      goodsList: []
+      goodsList: [],
+      listQuery: {
+        page: 1,
+        pageSize: 10,
+        total: 0
+      }
+    }
+  },
+  methods: {
+    getList () {
+      getProductList(this.listQuery).then(res => {
+        this.goodsList = res.data.list
+        this.listQuery = res.data.listQuery
+      })
     }
   },
   created () {
-    // console.log(this.$router)
-    // console.log(this.$route)
-    getProductList().then(res => {
-      this.goodsList = res.data.list
-    })
+    this.getList()
   },
-  components: { Product }
+  components: { Product, Pagination }
 }
 </script>
 

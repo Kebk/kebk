@@ -50,9 +50,9 @@ export default {
     return {
       headerList: [
         { path: '/', title: '首页' },
+        { path: '/product/index', title: '商品列表' },
         { path: '/user', title: '个人中心' },
-        { path: '/agent/applySup', title: '成为供应商' },
-        { path: '/product/index', title: '商品列表' }
+        { path: '/agent/applySup', title: '成为供应商' }
       ],
       showMenu: false
     }
