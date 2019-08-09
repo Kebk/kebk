@@ -1,21 +1,21 @@
-.DS_Store
+# package
 node_modules
-/dist
+package-lock.json
 
-# local env files
-.env.local
-.env.*.local
+# dist
+dist/
 
 # Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+**/log/*.log
 
 # Editor directories and files
 .idea
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
+
+# secret files
+**/pem/*
+
+# temp files
+**/temp/*
+
+!.gitkeep
